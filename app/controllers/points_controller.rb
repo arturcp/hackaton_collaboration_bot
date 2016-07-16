@@ -18,8 +18,14 @@ class PointsController < ActionController::API
     @message ||= Message.new(slack_params[:text])
   end
 
+  def slack_message?
+    return true unless Rails.env.production?
+
+    slack_params[:token] == ENV.fetch('SLACK_TOKEN', '')
+  end
+
   def award_points
-    return unless current_house
+    return unless slack_message? && current_house
 
     HousePoint.create(
       house: current_house,
