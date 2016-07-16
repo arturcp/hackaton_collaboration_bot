@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20160716170202) do
 
   create_table "house_points", force: :cascade do |t|
     t.integer  "house_id"
-    t.integer  "points"
+    t.integer  "value"
     t.string   "user"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
