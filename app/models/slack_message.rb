@@ -5,8 +5,8 @@
 #
 # For more information, consult https://rubyslackapi.slack.com/services/B1RQD447R?added=1
 class SlackMessage
-  POINTS_INDEX = 1
-  HOUSE_INDEX = 4
+  POINTS_INDEX = 0
+  HOUSE_INDEX = 3
 
   attr_reader :points, :house_name
 

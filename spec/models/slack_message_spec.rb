@@ -5,7 +5,7 @@ describe SlackMessage do
     context 'when the message is valid' do
       it 'awards points to a house' do
         (1..10).each do |point|
-          message = SlackMessage.new(message: "hogwarts_bot: #{point} point to somehouse")
+          message = SlackMessage.new(message: "#{point} point to somehouse")
           expect(message.points).to eq(point)
         end
       end
@@ -21,7 +21,7 @@ describe SlackMessage do
   describe '#house_name' do
     context 'when the message is valid' do
       it 'extracts the name of the house' do
-        expect(SlackMessage.new(message: 'hogwarts_bot: 1 point to Gryffindor').house_name).to eq('Gryffindor')
+        expect(SlackMessage.new(message: '1 point to Gryffindor').house_name).to eq('Gryffindor')
       end
     end
 
@@ -35,19 +35,19 @@ describe SlackMessage do
   describe '#valid?' do
     context 'when no points were awarded' do
       it 'is invalid' do
-        expect(SlackMessage.new(message: 'hogwarts_bot: 0 points to house')).not_to be_valid
+        expect(SlackMessage.new(message: '0 points to house')).not_to be_valid
       end
     end
 
     context 'when no house was specified' do
       it 'is invalid' do
-        expect(SlackMessage.new(message: 'hogwarts_bot: 0 points')).not_to be_valid
+        expect(SlackMessage.new(message: '0 points')).not_to be_valid
       end
     end
 
     context 'when points and houses were provided' do
       it 'is valid' do
-        expect(SlackMessage.new(message: 'hogwarts_bot: 10 points to Ravenclaw')).to be_valid
+        expect(SlackMessage.new(message: '10 points to Ravenclaw')).to be_valid
       end
     end
   end
