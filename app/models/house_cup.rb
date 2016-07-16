@@ -1,10 +1,10 @@
 class HouseCup
   attr_reader :message, :user_name, :house
 
-  def initialize(token:, user_name:, message:, origin: Origin::Slack)
-    @message = Message.new(message)
-    @origin = origin.new(token)
-    @user_name = user_name
+  # TODO: these parameters should go to the awards method
+  def initialize(message:, origin: Origin::Slack)
+    @origin = origin.new(message.token)
+    @message = message
     @house = current_house
   end
 
@@ -12,9 +12,9 @@ class HouseCup
     return unless @origin.valid? && current_house
 
     HousePoint.create(
-      house: current_house,
+      house: @house,
       value: message.points,
-      user: user_name
+      user: message.user_name
     )
   end
 
@@ -25,6 +25,6 @@ class HouseCup
   private
 
   def current_house
-    @house ||= House.find_by(name: message.house_name)
+    House.find_by(name: message.house_name)
   end
 end

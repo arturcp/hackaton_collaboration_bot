@@ -1,17 +1,20 @@
-# Public: Represent the message written on slack that triggered the webhook
+# Public: Represent the message written on slack that triggered the web hook
 #
 # The Slack outgoing format for the text param is:
 #   <botname>: <X> (point|points) to <house_name>...
 #
 # For more information, consult https://rubyslackapi.slack.com/services/B1RQD447R?added=1
-class Message
+class SlackMessage
   POINTS_INDEX = 1
   HOUSE_INDEX = 4
 
-  attr_reader :points, :house_name
+  attr_reader :points, :house_name, :user_name, :token
 
-  def initialize(message = '')
+  def initialize(token: '', user_name: '', message: '')
+    @token = token || ''
+    @user_name = user_name || ''
     @message = message || ''
+
     @points = parts[POINTS_INDEX].to_i
     @house_name = parts[HOUSE_INDEX]&.capitalize || ''
   end

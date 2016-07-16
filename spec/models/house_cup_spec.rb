@@ -13,14 +13,8 @@ describe HouseCup do
   end
 
   describe '#award_points' do
-    let(:house_cup) do
-      HouseCup.new(
-        token: '',
-        user_name: 'Jane Roe',
-        message: 'hogwarts_bot: 3 points to Gryffindor',
-        origin: Origin::Slack
-      )
-    end
+    let(:message) { SlackMessage.new(message: 'hogwarts_bot: 3 points to Gryffindor') }
+    let(:house_cup) { HouseCup.new(message: message, origin: Origin::Slack) }
 
     context 'when the token is invalid' do
       before do

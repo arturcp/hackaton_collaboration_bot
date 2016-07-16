@@ -8,7 +8,11 @@ class PointsController < ActionController::API
   private
 
   def house_cup
-    HouseCup.new(
+    HouseCup.new(message: slack_message)
+  end
+
+  def slack_message
+    SlackMessage.new(
       token: slack_params[:token],
       user_name: slack_params[:user_name],
       message: slack_params[:text]
