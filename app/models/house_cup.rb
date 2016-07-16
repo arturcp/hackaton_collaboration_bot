@@ -9,7 +9,7 @@ class HouseCup
     )
   end
 
-  def self.start!
+  def self.restart!
     HousePoint.delete_all
   end
 end

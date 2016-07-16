@@ -10,6 +10,10 @@ class PointsController < ActionController::API
     end
   end
 
+  def destroy
+    HouseCup.restart!
+  end
+
   private
 
   def slack_message

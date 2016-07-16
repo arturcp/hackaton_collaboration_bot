@@ -3,11 +3,11 @@ require 'rails_helper'
 describe HouseCup do
   let!(:house) { create(:house, :gryffindor) }
 
-  describe '.start' do
+  describe '.restart!' do
     let!(:house_point) { create(:house_point, house: house) }
 
     it 'clears the points from the database' do
-      HouseCup.start!
+      HouseCup.restart!
       expect(HousePoint.count).to eq(0)
     end
   end
