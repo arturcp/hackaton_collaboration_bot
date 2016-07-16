@@ -12,17 +12,14 @@ describe HouseCup do
     end
   end
 
-  describe '#award_points' do
-    let(:message) { SlackMessage.new(message: 'hogwarts_bot: 3 points to Gryffindor') }
-    let(:house_cup) { HouseCup.new(message: message, origin: Origin::Slack) }
-
+  describe '.award_points' do
     context 'when the token is invalid' do
       before do
         expect_any_instance_of(Origin::Slack).to receive(:valid?).and_return(false)
       end
 
       it 'does not award points' do
-        house_cup.award_points
+        HouseCup.award_points(house: house, token: '1234', points: 3)
         expect(HousePoint.count).to eq(0)
       end
     end
@@ -33,7 +30,7 @@ describe HouseCup do
       end
 
       it 'awards points to the house' do
-        expect { house_cup.award_points }.to change { HousePoint.sum('value') }.by(3)
+        expect { HouseCup.award_points(house: house, token: '12345', points: 3) }.to change { HousePoint.sum('value') }.by(3)
       end
     end
   end

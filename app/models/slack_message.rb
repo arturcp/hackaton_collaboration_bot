@@ -8,11 +8,9 @@ class SlackMessage
   POINTS_INDEX = 1
   HOUSE_INDEX = 4
 
-  attr_reader :points, :house_name, :user_name, :token
+  attr_reader :points, :house_name
 
-  def initialize(token: '', user_name: '', message: '')
-    @token = token || ''
-    @user_name = user_name || ''
+  def initialize(message: '')
     @message = message || ''
 
     @points = parts[POINTS_INDEX].to_i

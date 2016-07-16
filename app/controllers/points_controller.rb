@@ -1,22 +1,25 @@
 class PointsController < ActionController::API
   def create
-    @house = house_cup.house
-
-    house_cup.award_points
+    if slack_message.valid?
+      HouseCup.award_points(
+        house: house,
+        token: slack_params[:token],
+        points: slack_message.points,
+        user_name: slack_params[:user_name]
+      )
+    end
   end
 
   private
 
-  def house_cup
-    HouseCup.new(message: slack_message)
-  end
-
   def slack_message
-    SlackMessage.new(
-      token: slack_params[:token],
-      user_name: slack_params[:user_name],
+    @slack_message ||= SlackMessage.new(
       message: slack_params[:text]
     )
+  end
+
+  def house
+    @house ||= House.find_by(name: slack_message.house_name)
   end
 
   def slack_params

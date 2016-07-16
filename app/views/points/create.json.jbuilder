@@ -1,3 +1,3 @@
-if @house && @house.valid?
+if @house
   json.text "#{@house.name} has now #{@house.points} points! See the house cup dashboard in www.dashboard.com.br"
 end
