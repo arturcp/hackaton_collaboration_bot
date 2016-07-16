@@ -8,3 +8,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+House.delete_all
+House.create!(name: 'Gryffindor')
+House.create!(name: 'Hufflepuff')
+House.create!(name: 'Ravenclaw')
+House.create!(name: 'Slytherin')
