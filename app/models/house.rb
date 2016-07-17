@@ -1,5 +1,5 @@
 class House < ActiveRecord::Base
-  has_many :house_points
+  has_many :house_points, dependent: :delete_all
 
   def points
     house_points.reduce(0) do |sum, house_point|
