@@ -17,7 +17,7 @@ describe 'Score points', type: :request do
 
         json = JSON.parse(response.body, symbolize_names: true)
         message = 'Oops. Something is wrong =/'
-        expect(json[:text]).to eq(message)
+        expect(json[:text]).to include(message)
       end
     end
   end
