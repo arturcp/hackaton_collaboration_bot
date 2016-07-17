@@ -1,5 +1,5 @@
 if @house
-  json.text "#{@house.name} has now #{@house.points} points! See the house cup dashboard in www.dashboard.com.br"
+  json.text "#{@house.name} has now #{@house.points} points! Check the house cup dashboard in #{dashboard_url}"
 else
-  json.text 'Oops. Algo deu errado na contagem dos pontos =/ É melhor você procurar o Dumbledore.'
+  json.text 'Oops. Something is wrong =/'
 end

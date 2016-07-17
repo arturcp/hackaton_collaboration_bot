@@ -20,4 +20,8 @@ module DashboardHelper
   def card_color(index)
     COLORS[index] || 'green'
   end
+
+  def dashboard_url
+    "#{ENV.fetch('SITE_URL')}#{dashboard_path}"
+  end
 end

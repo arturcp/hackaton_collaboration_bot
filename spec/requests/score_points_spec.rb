@@ -8,8 +8,7 @@ describe 'Score points', type: :request do
         post '/point', params: { text: '5 points to Ravenclaw because they helped me a lot' }
 
         json = JSON.parse(response.body, symbolize_names: true)
-        message = 'Ravenclaw has now 5 points! See the house cup dashboard in www.dashboard.com.br'
-        expect(json[:text]).to eq(message)
+        expect(json[:text]).to include('Ravenclaw has now 5 points!')
         expect(json.count).to be_eql(1)
       end
 
@@ -17,7 +16,7 @@ describe 'Score points', type: :request do
         post '/point'
 
         json = JSON.parse(response.body, symbolize_names: true)
-        message = 'Oops. Algo deu errado na contagem dos pontos =/ É melhor você procurar o Dumbledore.'
+        message = 'Oops. Something is wrong =/'
         expect(json[:text]).to eq(message)
       end
     end
