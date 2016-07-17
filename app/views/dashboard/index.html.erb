@@ -1,0 +1,22 @@
+<section>
+  <div class="container">
+    <div id="card-stats">
+      <div class="row">
+        <% @houses.each_with_index do |house, index| %>
+          <div class="col s12 m6 l3">
+            <div class="card">
+              <div class="card-content <%= card_color(index) %> white-text">
+                <h2 class="card-stats-number text-center"><%= house.points %></h2>
+              </div>
+              <div class="card-action <%= card_color(index) %> darken-2">
+                <div class="center-align">
+                  <%= house.name %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

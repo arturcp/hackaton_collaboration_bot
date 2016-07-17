@@ -12,4 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require_tree ./modules
 //= require_tree .
+
+$(function() {
+  setTimeout(function() {
+    $('body').addClass('loaded');
+  },100);
+});

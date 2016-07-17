@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   defaults format: 'json' do
     resource :point, only: [:create, :destroy]
   end
+
+  get 'dashboard', to: 'dashboard#index'
 end
