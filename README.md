@@ -14,8 +14,9 @@ The `Houses` concept comes from Harry Potter world:
 * Ravenclaw
 * Slytherin
 
-For example, if a slack users sends a message like `1 point to Ravenclaw because Jane Roe helped me a lot in my project`,
-Ravenclaw will receive a point and a link to the house cup panel will be returned to the users.
+For example, if a slack users sends a message like '1 point to `Ravenclaw` because Jane Roe helped me a lot in my project',
+Ravenclaw will receive a point and a link to the house cup panel will be returned to the users. Notice that the house name must
+be encolsed with "`"
 
 Check it out:
 
@@ -44,8 +45,8 @@ Run the the app:
 
 ## Environment dependencies
 
-*   Ruby 2.3.1
-*   PostgreSQL
+  * Ruby 2.3.1
+  * PostgreSQL
 
 
 # Dashboard
@@ -57,8 +58,7 @@ There is a dashboard with the points of each house. It is accessible on the `/da
 To restart the contest, it is possible to send a DELETE http request to `/dashboard`. It will delete all points already awarded, but will keep the houses in place.
 
 # TODO
-* Allow easy configuration of houses
-* Allow admin to customize slack messages
-* List users per house and prevent them to award points to their houses (maybe some points should be removed from the house as a punishment)
-* Customize dashboard header 
-
+  * Allow easy configuration of houses
+  * Allow admin to customize slack messages
+  * List users per house and prevent them to award points to their houses (maybe some points should be removed from the house as a punishment)
+  * Customize dashboard header
