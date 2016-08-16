@@ -15,6 +15,7 @@ describe 'Score points', type: :request do
       end
 
       it 'alerts the user the message is invalid' do
+        ENV['ERROR_RESPONSE'] = nil
         post '/point'
 
         json = JSON.parse(response.body, symbolize_names: true)

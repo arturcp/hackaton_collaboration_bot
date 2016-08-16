@@ -6,7 +6,6 @@
 # For more information, consult https://rubyslackapi.slack.com/services/B1RQD447R?added=1
 class SlackMessage
   POINTS_INDEX = 0
-  HOUSE_INDEX = 3
 
   attr_reader :points, :house_name
 
@@ -29,6 +28,6 @@ class SlackMessage
   end
 
   def extract_name!
-    @house_name = /`[^`]+`/.match(parts[HOUSE_INDEX]).to_s.delete('`').capitalize
+    @house_name = /`[^`]+`/.match(@message).to_s.delete('`').capitalize
   end
 end
