@@ -28,7 +28,7 @@ describe 'Score points', type: :request do
       gryffindor = create(:house, :gryffindor)
       create(:house_point, house: gryffindor)
 
-      delete '/point'
+      delete '/dashboard'
 
       expect(HousePoint.count).to eq(0)
     end
