@@ -21,7 +21,11 @@ describe SlackMessage do
   describe '#house_name' do
     context 'when the message is valid' do
       it 'extracts the name of the house' do
-        expect(SlackMessage.new(message: '1 point to Gryffindor').house_name).to eq('Gryffindor')
+        expect(SlackMessage.new(message: '1 point to `Gryffindor`').house_name).to eq('Gryffindor')
+      end
+
+      it 'capitalizes the name of the house' do
+        expect(SlackMessage.new(message: '1 point to `gryffindor`').house_name).to eq('Gryffindor')
       end
     end
 
@@ -35,7 +39,7 @@ describe SlackMessage do
   describe '#valid?' do
     context 'when no points were awarded' do
       it 'is invalid' do
-        expect(SlackMessage.new(message: '0 points to house')).not_to be_valid
+        expect(SlackMessage.new(message: '0 points to `house`')).not_to be_valid
       end
     end
 
@@ -47,7 +51,7 @@ describe SlackMessage do
 
     context 'when points and houses were provided' do
       it 'is valid' do
-        expect(SlackMessage.new(message: '10 points to Ravenclaw')).to be_valid
+        expect(SlackMessage.new(message: '10 points to `Ravenclaw`')).to be_valid
       end
     end
   end

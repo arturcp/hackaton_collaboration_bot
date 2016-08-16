@@ -5,7 +5,7 @@ describe 'Score points', type: :request do
     context 'Slack webhook captures trigger keywords' do
       it 'concedes points to the specified house' do
         create(:house, :ravenclaw)
-        post '/point', params: { text: '5 points to Ravenclaw because they helped me a lot' }
+        post '/point', params: { text: '5 points to `Ravenclaw` because they helped me a lot' }
 
         json = JSON.parse(response.body, symbolize_names: true)
         expect(json[:text]).to include('Ravenclaw has now 5 points!')

@@ -14,7 +14,8 @@ class SlackMessage
     @message = message || ''
 
     @points = parts[POINTS_INDEX].to_i
-    @house_name = parts[HOUSE_INDEX]&.capitalize || ''
+
+    extract_name!
   end
 
   def valid?
@@ -25,5 +26,9 @@ class SlackMessage
 
   def parts
     @parts ||= @message.split(' ')
+  end
+
+  def extract_name!
+    @house_name = /`[^`]+`/.match(parts[HOUSE_INDEX]).to_s.delete('`').capitalize
   end
 end
