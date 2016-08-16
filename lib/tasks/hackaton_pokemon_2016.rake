@@ -10,9 +10,17 @@ namespace :hackaton do
     House.create!(name: 'Kadabra', avatar: 'http://vignette2.wikia.nocookie.net/pokemon/images/9/97/064Kadabra.png/revision/latest?cb=20140328202820')
     House.create!(name: 'Kecleon', avatar: 'http://vignette2.wikia.nocookie.net/pokemon/images/5/50/352Kecleon.png/revision/latest?cb=20140329023847')
     House.create!(name: 'Lapras', avatar: 'http://vignette2.wikia.nocookie.net/pokemon/images/a/ab/131Lapras.png/revision/latest?cb=20140328210730')
-    House.create!(name: 'Meowth Bot', avatar: 'http://vignette1.wikia.nocookie.net/pokemon/images/d/d6/052Meowth.png/revision/latest?cb=20140328195855')
-    House.create!(name: 'Pokupon', avatar: 'http://i148.photobucket.com/albums/s27/arturbcc/pokupom_avatar_zpshikvcimh.jpg')
-    House.create!(name: 'Rockets', avatar: 'http://i148.photobucket.com/albums/s27/arturbcc/team_rocket_avatar_zpssssirhdb.png')
     House.create!(name: 'Zapdos', avatar: 'http://vignette3.wikia.nocookie.net/pokemon/images/e/e3/145Zapdos.png/revision/latest?cb=20140328211202')
+
+    meowth = House.create!(name: 'Meowth Bot', avatar: 'http://vignette1.wikia.nocookie.net/pokemon/images/d/d6/052Meowth.png/revision/latest?cb=20140328195855')
+    HouseAlias.create!(house: meowth, alias: 'Meowth')
+
+    rocket = House.create!(name: 'Rockets', avatar: 'http://i148.photobucket.com/albums/s27/arturbcc/team_rocket_avatar_zpssssirhdb.png')
+    HouseAlias.create!(house: rocket, alias: 'Equipe Rocket')
+    HouseAlias.create!(house: rocket, alias: 'Team Rocket')
+    HouseAlias.create!(house: rocket, alias: 'Rocket')
+
+    pokupon = House.create!(name: 'Pokupon', avatar: 'http://i148.photobucket.com/albums/s27/arturbcc/pokupom_avatar_zpshikvcimh.jpg')
+    HouseAlias.create!(house: pokupon, alias: 'Pokupom')
   end
 end

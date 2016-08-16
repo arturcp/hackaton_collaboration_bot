@@ -34,4 +34,32 @@ describe HouseCup do
       end
     end
   end
+
+  describe '.find_by_name' do
+    let!(:alias) { HouseAlias.first_or_create(alias: 'gryff', house: house) }
+
+    context 'when the case matches' do
+      it 'finds a house by name' do
+        expect(House.find_by_name('Gryffindor')).to eq(house)
+      end
+
+      it 'finds a house by alias' do
+        expect(House.find_by_name('gryff')).to eq(house)
+      end
+
+      it 'returns nil if no house was found' do
+        expect(House.find_by_name('typo')).to be_nil
+      end
+    end
+
+    context 'when the case does not match' do
+      it 'finds a house by name' do
+        expect(House.find_by_name('gryffindor')).to eq(house)
+      end
+
+      it 'finds a house by alias' do
+        expect(House.find_by_name('Gryff')).to eq(house)
+      end
+    end
+  end
 end

@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160717013622) do
+ActiveRecord::Schema.define(version: 20160816171949) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "house_aliases", force: :cascade do |t|
+    t.integer "house_id"
+    t.string  "alias"
+  end
 
   create_table "house_points", force: :cascade do |t|
     t.integer  "house_id"
@@ -30,4 +35,5 @@ ActiveRecord::Schema.define(version: 20160717013622) do
     t.string   "avatar",     default: "", null: false
   end
 
+  add_foreign_key "house_aliases", "houses"
 end

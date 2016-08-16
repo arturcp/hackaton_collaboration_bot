@@ -19,7 +19,7 @@ class PointsController < ActionController::API
   end
 
   def house
-    @house ||= House.find_by(name: slack_message.house_name)
+    @house ||= House.find_by_name(slack_message.house_name)
   end
 
   def slack_params
