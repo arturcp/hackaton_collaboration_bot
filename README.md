@@ -16,7 +16,7 @@ The `Houses` concept comes from Harry Potter world:
 
 For example, if a slack users sends a message like '1 point to `Ravenclaw` because Jane Roe helped me a lot in my project',
 Ravenclaw will receive a point and a link to the house cup panel will be returned to the users. Notice that the house name must
-be encolsed with backticks (`)
+be enclosed with backticks (`)
 
 Check it out:
 
