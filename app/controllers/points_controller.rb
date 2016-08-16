@@ -1,4 +1,7 @@
 class PointsController < ActionController::API
+  include ActionController::Helpers
+  helper DashboardHelper
+
   def create
     if slack_message.valid?
       HouseCup.award_points(

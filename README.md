@@ -22,6 +22,26 @@ Check it out:
 
 ![](http://g.recordit.co/5QHNmRlbIB.gif)
 
+To configure the response messages, all you need to do is to set two ENV variables:
+
+  * SUCCESS_RESPONSE:
+
+    it will interpolate your message with three variables:
+
+    * house_name: the name of the house that has just received points
+    * points: the total points of the given house
+    * dashboard_url: the url to the dashboard
+
+    To use these variables, include in your success response string the pattern
+    `%{ variable_name }`. For example, you can configure your outgoing message as:
+
+    `%{house_name} has now %{points} points! Check the house cup dashboard in %{dashboard_url}`
+
+  * ERROR_RESPONSE:
+
+    it does not accept any parameter. The string in the variable will be the text displayed
+    on slack if a user tries to give points to a house that does not exist, for example.
+
 
 ## Setup
 

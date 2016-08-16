@@ -1,5 +1,5 @@
 if @house
-  json.text "#{@house.name} has now #{@house.points} points! Check the house cup dashboard in #{dashboard_url}"
+  json.text success_response(@house.name, @house.points)
 else
-  json.text 'Oops. Something is wrong =/ It\'s better to find Dumbledore.'
+  json.text error_response
 end
