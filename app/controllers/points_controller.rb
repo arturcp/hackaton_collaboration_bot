@@ -1,6 +1,6 @@
 class PointsController < ActionController::API
   include ActionController::Helpers
-  helper DashboardHelper
+  helper DashboardHelper, SlackHelper
 
   def create
     if slack_message.valid?
