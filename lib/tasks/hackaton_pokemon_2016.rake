@@ -11,6 +11,8 @@ namespace :hackaton do
       error_image_url: 'http://66.media.tumblr.com/7daf9bb49c739c50fb70959de827c83d/tumblr_ms7a8hQA851r019ito1_500.gif'
     )
 
+    HouseAlias.delete_all
+    HousePoint.delete_all
     House.delete_all
     House.create!(name: 'Alakazam', avatar: 'http://vignette4.wikia.nocookie.net/pokemon/images/c/cc/065Alakazam.png/revision/latest?cb=20140328202820')
     House.create!(name: 'Arceus', avatar: 'http://vignette3.wikia.nocookie.net/pokemon/images/f/fc/493Arceus.png/revision/latest?cb=20140329043000')
