@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :house do
+  factory :team do
     trait :gryffindor do
       name 'Gryffindor'
     end

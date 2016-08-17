@@ -4,13 +4,13 @@
       <h4 class="header2">Stats</h4>
       <ul>
         <li>
-          <%= @houses.count %> teams
+          <%= @teams.count %> teams
         </li>
         <li>
           <%= @points %> points given
         </li>
         <li>
-          The game is on since <%= @house_cup.created_at.strftime('%d/%m/%Y') %>
+          The game is on since <%= @hackaton.created_at.strftime('%d/%m/%Y') %>
         </li>
       </ul>
     </div>
@@ -19,7 +19,7 @@
     <div class="card-panel reset-card">
       <h4 class="header2">Reset</h4>
       <div class="row">
-        <%= form_tag restart_house_cup_path, method: :delete do %>
+        <%= form_tag restart_hackaton_path, method: :delete do %>
           <div class="row">
             <div class="input-field col s12">
               <p>

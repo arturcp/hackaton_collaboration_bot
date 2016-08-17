@@ -1,60 +1,70 @@
-# Hogwarts bot
+# Hackaton collaboration bot
 
-[![CircleCI](https://circleci.com/gh/youse-seguradora/youse.svg?&style=shield&circle-token=4832d496dfedf7343703c1ecc1398984f7495228)](https://circleci.com/gh/arturcp/hogwarts_bot)
+[![CircleCI](https://circleci.com/gh/youse-seguradora/youse.svg?&style=shield&circle-token=4832d496dfedf7343703c1ecc1398984f7495228)](https://circleci.com/gh/arturcp/hackaton_collaboration_bot)
 
-Hogwarts bot is a [Slack Webhook](https://rubyslackapi.slack.com/services/B1RQD447R?added=1)
-created to allow teams to interact with each other in a hackaton by sending special messages on slack. The
-idea for this code came from this [Khan Academy thematic hackaton](http://engineering.khanacademy.org/posts/healthy-hackathons.htm).
+Hackaton Collaboration Bot is a Webhook created to encourage teams to interact
+with each other during a hackaton by sending special messages on messaging apps
+(like slack, for example). The idea for this repo was stolen from the [Khan Academy thematic hackaton](http://engineering.khanacademy.org/posts/healthy-hackathons.htm).
 
-This hook captures messages starting with `1 point to` and adds a point to the house indicated by the original message.
-The `Houses` concept comes from Harry Potter world:
+The first version is integrated with slack by using the
+[slack webhook](https://rubyslackapi.slack.com/services/B1RQD447R?added=1). The hook
+captures messages starting with a specific text (such as `1 point to`) and
+assigns points to the team indicated in the original message.
 
-* Gryffindor
-* Hufflepuff
-* Ravenclaw
-* Slytherin
+The example included in the `seeds.rb` uses Harry Potter `Houses` as teams:
 
-For example, if a slack users sends a message like '1 point to \`Ravenclaw\` because Jane Roe helped me a lot in my project',
-Ravenclaw will receive a point and a link to the house cup panel will be returned to the users. Notice that the house name must
-be enclosed between backticks (`)
+  * Gryffindor
+  * Hufflepuff
+  * Ravenclaw
+  * Slytherin
+
+For example, if a slack users sends a message like '1 point to \`Ravenclaw\`
+because Jane Roe helped me a lot in my project', Ravenclaw will receive a point
+and a link to the hackaton dashboard will be returned to the users. Please notice
+that the team name must be enclosed between backticks (`).
 
 Check it out:
 
 ![](http://g.recordit.co/5QHNmRlbIB.gif)
 
-To configure the response messages, all you need to do is to set the attributes
-in the House Cup entry:
+## Hackaton settings
+
+To configure the response messages, each hackaton is built with specific
+attributes relative to how the messages will be delived back to the users. The
+valid attributes are:
 
   * success_text:
 
-    it will interpolate your message with three variables:
+    This message will be interpolated with three other variables before being
+    sent back to the users:
 
-    * house_name: the name of the house that has just received points
-    * points: the total points of the given house
-    * dashboard_url: the url to the dashboard
+    * team_name: the name of the team that has just received points
+    * points: the total points assigned to the team
+    * dashboard_url: the url to the dashboard of the current hackaton
 
-    To use these variables, include in your success response string the pattern
+    To use these variables, include in your `success text string` the pattern
     `%{ variable_name }`. For example, you can configure your outgoing message as:
 
-    `%{house_name} has now %{points} points! Check the house cup dashboard in %{dashboard_url}`
+    `%{team_name} has now %{points} points! Check the house cup dashboard in %{dashboard_url}`
 
   * error_text:
 
-    it does not accept any parameter. The string in the variable will be the text displayed
-    on slack if a user tries to give points to a house that does not exist, for example.
+    It does not accept any parameters and will not interpolate. This string will
+    be the text displayed on the messaging app if a user tries to give points to
+    a team that does not exist, for example.
 
   * error_color:
 
-    a vertical bar is inserted at the left of the error message. This attribute
+    A vertical bar is inserted at the left of the error message. This attribute
     allows you to choose the color of the bar.
-
-  * error_pretext:
-
-    a small text that will be prepend above the error image
 
   * error_image:
 
-    an image to be displayed when an error occurs.
+    An image to be displayed with the error message.
+
+  * error_pretext:
+
+    A small text that works as a caption for the image above
 
 
 ## Setup
@@ -71,7 +81,7 @@ Now you should be able to run the tests:
   bin/rspec
 ```
 
-Run the the app:
+To run the the app:
 
 ```bash
   bin/rails server
@@ -83,18 +93,21 @@ Run the the app:
   * PostgreSQL
 
 
-# Dashboard
+## Admin Panel
 
 There is an admin panel to configure the hackatons. It is accessible on the `/admin`
 url and the user and password are set through env variables (ADMIN_USER and
 ADMIN_PASSWORD).
 
-# Dashboard
+## Dashboard
 
-There is a dashboard with the points of each house. It is accessible on the `/dashboard` url.
+There is a dashboard with the points of each team. It is accessible on the
+`/dashboard` url.
 
 
-# TODO
-  * Allow easy configuration of houses
-  * List users per house and prevent them to award points to their houses (maybe some points should be removed from the house as a punishment)
-  * Allow many hackatons at the same time. Each house must be linked to one HouseCup, and they should be able to coexist
+## TODO
+  * Allow easy configuration of teams
+  * List users per team and prevent them to award points to their teams
+  (maybe some points should be removed from the team as a punishment)
+  * Allow many hackatons at the same time. Each team must be linked to one
+  Hackaton, and they should be able to coexist

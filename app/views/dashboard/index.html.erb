@@ -2,20 +2,20 @@
   <div class="container">
     <div id="card-stats">
       <div class="row">
-        <% @houses.each_with_index do |house, index| %>
+        <% @teams.each_with_index do |team, index| %>
           <div class="col s12 m6 l3">
             <div class="card">
               <div class="card-content <%= card_color(index) %> white-text">
-                <h1 class="house-avatar">
-                  <img src="<%= house.avatar %>" />
+                <h1 class="team-avatar">
+                  <img src="<%= team.avatar %>" />
                 </h1>
                 <h2 class="card-stats-number text-center">
-                  <%= house.points %>
+                  <%= team.points %>
                 </h2>
               </div>
               <div class="card-action <%= card_color(index) %> darken-2">
                 <div class="center-align">
-                  <%= index + 1 %>. <%= house.name %>
+                  <%= index + 1 %>. <%= team.name %>
                 </div>
               </div>
             </div>

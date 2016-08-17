@@ -6,5 +6,5 @@ Rails.application.routes.draw do
 
   get 'dashboard', to: 'dashboard#index'
   get 'admin', to: 'admin#index'
-  delete 'admin', to: 'admin#destroy', as: 'restart_house_cup'
+  delete 'admin', to: 'admin#destroy', as: 'restart_hackaton'
 end

@@ -1,14 +1,14 @@
-if @house
-  json.attachments [@house_cup] do |house_cup|
-    json.text "GO, #{@house.name}!"
-    json.pretext success_response(@house_cup, @house.name, @house.points)
-    json.image_url @house.avatar
+if @team
+  json.attachments [@hackaton] do |hackaton|
+    json.text "GO, #{@team.name}!"
+    json.pretext success_response(@hackaton, @team.name, @team.points)
+    json.image_url @team.avatar
   end
 else
-  json.attachments [@house_cup] do |house_cup|
-    json.color house_cup.error_color
-    json.pretext house_cup.error_pretext
-    json.text house_cup.error_text
-    json.image_url house_cup.error_image_url
+  json.attachments [@hackaton] do |hackaton|
+    json.color hackaton.error_color
+    json.pretext hackaton.error_pretext
+    json.text hackaton.error_text
+    json.image_url hackaton.error_image_url
   end
 end

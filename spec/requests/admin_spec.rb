@@ -2,15 +2,15 @@ require 'rails_helper'
 
 describe 'Score points', type: :request do
   describe '#destroy' do
-    it 'deletes all house points' do
-      create(:house_cup)
-      create(:house, :ravenclaw)
-      gryffindor = create(:house, :gryffindor)
-      create(:house_point, house: gryffindor)
+    it 'deletes all team points' do
+      create(:hackaton)
+      create(:team, :ravenclaw)
+      gryffindor = create(:team, :gryffindor)
+      create(:team_point, team: gryffindor)
 
       delete '/admin'
 
-      expect(HousePoint.count).to eq(0)
+      expect(TeamPoint.count).to eq(0)
       expect(response).to redirect_to(admin_path)
     end
   end

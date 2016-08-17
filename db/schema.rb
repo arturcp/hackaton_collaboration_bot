@@ -15,12 +15,7 @@ ActiveRecord::Schema.define(version: 20160817013910) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "house_aliases", force: :cascade do |t|
-    t.integer "house_id"
-    t.string  "alias"
-  end
-
-  create_table "house_cups", force: :cascade do |t|
+  create_table "hackatons", force: :cascade do |t|
     t.string   "name"
     t.string   "success_text"
     t.string   "error_color"
@@ -31,20 +26,26 @@ ActiveRecord::Schema.define(version: 20160817013910) do
     t.datetime "updated_at",      null: false
   end
 
-  create_table "house_points", force: :cascade do |t|
-    t.integer  "house_id"
+  create_table "team_aliases", force: :cascade do |t|
+    t.integer "team_id"
+    t.string  "alias"
+  end
+
+  create_table "team_points", force: :cascade do |t|
+    t.integer  "team_id"
     t.integer  "value"
     t.string   "user"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "houses", force: :cascade do |t|
+  create_table "teams", force: :cascade do |t|
     t.string   "name"
+    t.string   "avatar",     default: "", null: false
+    t.string   "string",     default: "", null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
-    t.string   "avatar",     default: "", null: false
   end
 
-  add_foreign_key "house_aliases", "houses"
+  add_foreign_key "team_aliases", "teams"
 end

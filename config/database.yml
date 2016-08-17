@@ -2,7 +2,7 @@ default: &default
   adapter: postgresql
   encoding: unicode
   username: <%= ENV["POSTGRESQL_USER"] || ENV["USER"] || 'postgres' %>
-  database: <%= ENV["POSTGRESQL_DATABASE"] || 'hogwarts_development' %>
+  database: <%= ENV["POSTGRESQL_DATABASE"] || 'hackaton_collaboration_development' %>
   password: <%= ENV["POSTGRESQL_PASSWORD"] %>
   host: <%= ENV["POSTGRESQL_HOST"] || 'localhost' %>
   pool: <%= ENV["POSTGRESQL_POOL"] || 5 %>
@@ -10,11 +10,11 @@ default: &default
 
 development:
   <<: *default
-  database: hogwarts_development
+  database: hackaton_collaboration_development
 
 test:
   <<: *default
-  database: hogwarts_test
+  database: hackaton_collaboration_test
 
 production:
   <<: *default
