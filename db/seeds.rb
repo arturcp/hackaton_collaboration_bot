@@ -12,7 +12,7 @@
 HouseCup.delete_all
 HouseCup.create!(
   name: 'Harry Potter Hackaton',
-  success_response: '%{house_name} has now %{points} points! Check the house cup dashboard in %{dashboard_url}',
+  success_text: '%{house_name} has now %{points} points! Check the house cup dashboard in %{dashboard_url}',
   error_color: '#f4dd1d',
   error_pretext: 'Oops. Something is wrong =/ ',
   error_text: 'It\'s better to call Dumbledore',

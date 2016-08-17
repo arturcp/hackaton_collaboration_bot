@@ -1,5 +1,9 @@
 if @house
-  json.text success_response(@house.name, @house.points)
+  json.attachments [@house_cup] do |house_cup|
+    json.text "GO, #{@house.name}!"
+    json.pretext success_response(@house_cup, @house.name, @house.points)
+    json.image_url @house.avatar
+  end
 else
   json.attachments [@house_cup] do |house_cup|
     json.color house_cup.error_color

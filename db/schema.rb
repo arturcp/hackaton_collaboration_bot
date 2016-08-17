@@ -22,13 +22,13 @@ ActiveRecord::Schema.define(version: 20160817013910) do
 
   create_table "house_cups", force: :cascade do |t|
     t.string   "name"
-    t.string   "success_response"
+    t.string   "success_text"
     t.string   "error_color"
     t.string   "error_pretext"
     t.string   "error_text"
     t.string   "error_image_url"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "house_points", force: :cascade do |t|

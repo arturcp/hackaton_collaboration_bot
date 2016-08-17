@@ -4,7 +4,7 @@ namespace :hackaton do
     HouseCup.delete_all
     HouseCup.create!(
       name: 'Pokémon Hackaton',
-      success_response: '%{house_name} tem agora %{points} pontos! Veja o ranking completo em %{dashboard_url}',
+      success_text: '%{house_name} tem agora %{points} pontos! Veja o ranking completo em %{dashboard_url}',
       error_color: '#f4dd1d',
       error_pretext: 'Oops, acho que essa equipe não existe =/',
       error_text: 'Você lembrou de escrever o nome da equipe entre crases? Ele deveria ficar `assim`',

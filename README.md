@@ -22,9 +22,10 @@ Check it out:
 
 ![](http://g.recordit.co/5QHNmRlbIB.gif)
 
-To configure the response messages, all you need to do is to set two ENV variables:
+To configure the response messages, all you need to do is to set the attributes
+in the House Cup entry:
 
-  * SUCCESS_RESPONSE:
+  * success_text:
 
     it will interpolate your message with three variables:
 
@@ -37,10 +38,23 @@ To configure the response messages, all you need to do is to set two ENV variabl
 
     `%{house_name} has now %{points} points! Check the house cup dashboard in %{dashboard_url}`
 
-  * ERROR_RESPONSE:
+  * error_text:
 
     it does not accept any parameter. The string in the variable will be the text displayed
     on slack if a user tries to give points to a house that does not exist, for example.
+
+  * error_color:
+
+    a vertical bar is inserted at the left of the error message. This attribute
+    allows you to choose the color of the bar.
+
+  * error_pretext:
+
+    a small text that will be prepend above the error image
+
+  * error_image:
+
+    an image to be displayed when an error occurs.
 
 
 ## Setup
@@ -71,11 +85,14 @@ Run the the app:
 
 # Dashboard
 
+There is an admin panel to configure the hackatons. It is accessible on the `/admin`
+url and the user and password are set through env variables (ADMIN_USER and
+ADMIN_PASSWORD).
+
+# Dashboard
+
 There is a dashboard with the points of each house. It is accessible on the `/dashboard` url.
 
-## Restarting
-
-To restart the contest, it is possible to send a DELETE http request to `/dashboard`. It will delete all points already awarded, but will keep the houses in place.
 
 # TODO
   * Allow easy configuration of houses
