@@ -1,7 +1,7 @@
 namespace :hackaton do
   desc 'create teams for Pokemon Hackaton 2016'
   task pokemon_2016: :environment do
-    Hackaton.delete_all
+    Hackaton.destroy_all
     Hackaton.create!(
       name: 'Pokémon Hackaton',
       success_pretext: '%{team_name} tem agora %{points} pontos! Veja o ranking completo em %{dashboard_url}',
@@ -12,7 +12,7 @@ namespace :hackaton do
       error_image_url: 'http://66.media.tumblr.com/7daf9bb49c739c50fb70959de827c83d/tumblr_ms7a8hQA851r019ito1_500.gif'
     )
 
-    Team.delete_all
+    Team.destroy_all
     alakazam = Team.create!(name: 'Alakazam', avatar: 'http://vignette4.wikia.nocookie.net/pokemon/images/c/cc/065Alakazam.png/revision/latest?cb=20140328202820')
     TeamMember.create!(name: 'diogobenica', team: alakazam)
     TeamMember.create!(name: 'tpresutto', team: alakazam)

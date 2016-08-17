@@ -1,7 +1,7 @@
 class Team < ActiveRecord::Base
-  has_many :team_points, dependent: :delete_all
-  has_many :team_aliases, dependent: :delete_all
-  has_many :team_members, dependent: :delete_all
+  has_many :team_points, dependent: :destroy
+  has_many :team_aliases, dependent: :destroy
+  has_many :team_members, dependent: :destroy
 
   def points
     team_points.reduce(0) do |sum, team_point|
