@@ -4,8 +4,4 @@ class DashboardController < ApplicationController
   def index
     @houses = House.all.sort_by { |house| [-house.points, house.name] }
   end
-
-  def destroy
-    HouseCup.restart!
-  end
 end

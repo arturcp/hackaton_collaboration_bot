@@ -24,18 +24,6 @@ describe 'Score points', type: :request do
       end
     end
   end
-
-  describe '#destroy' do
-    it 'deletes all house points' do
-      create(:house, :ravenclaw)
-      gryffindor = create(:house, :gryffindor)
-      create(:house_point, house: gryffindor)
-
-      delete '/dashboard'
-
-      expect(HousePoint.count).to eq(0)
-    end
-  end
 end
 
 def mock_success_response
