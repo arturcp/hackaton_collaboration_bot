@@ -3,8 +3,10 @@ class PointsController < ActionController::API
   helper DashboardHelper, SlackHelper
 
   def create
+    @house_cup = house_cup
+
     if slack_message.valid?
-      HouseCup.award_points(
+      @house_cup.award_points(
         house: house,
         token: slack_params[:token],
         points: slack_message.points,
@@ -23,6 +25,11 @@ class PointsController < ActionController::API
 
   def house
     @house ||= House.find_by_name(slack_message.house_name)
+  end
+
+  # TODO: The current house cup should be found by a url parameter
+  def house_cup
+    HouseCup.first
   end
 
   def slack_params

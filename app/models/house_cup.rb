@@ -1,5 +1,5 @@
-class HouseCup
-  def self.award_points(house:, token: '', points: 0, user_name: '', origin: Origin::Slack)
+class HouseCup < ActiveRecord::Base
+  def award_points(house:, token: '', points: 0, user_name: '', origin: Origin::Slack)
     return unless origin.new(token).valid? && house
 
     HousePoint.create(
@@ -9,7 +9,8 @@ class HouseCup
     )
   end
 
-  def self.restart!
+  def restart!
     HousePoint.delete_all
+    touch
   end
 end

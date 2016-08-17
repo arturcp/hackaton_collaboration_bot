@@ -6,7 +6,7 @@
           <li>
             <h1 class="logo-wrapper">
               <a href="/dashboard" class="brand-logo darken-1">
-                Hackaton
+                <%= @house_cup.present? ? @house_cup.name : 'Hackaton' %>
               </a>
             </h1>
           </li>

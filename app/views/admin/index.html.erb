@@ -9,6 +9,9 @@
         <li>
           <%= @points %> points given
         </li>
+        <li>
+          The game is on since <%= @house_cup.created_at.strftime('%d/%m/%Y') %>
+        </li>
       </ul>
     </div>
   </div>

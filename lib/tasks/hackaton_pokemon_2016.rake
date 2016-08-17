@@ -1,6 +1,16 @@
 namespace :hackaton do
   desc 'create teams for Pokemon Hackaton 2016'
   task pokemon_2016: :environment do
+    HouseCup.delete_all
+    HouseCup.create!(
+      name: 'Pokémon Hackaton',
+      success_response: '%{house_name} tem agora %{points} pontos! Veja o ranking completo em %{dashboard_url}',
+      error_color: '#f4dd1d',
+      error_pretext: 'Oops, acho que essa equipe não existe =/',
+      error_text: 'Você lembrou de escrever o nome da equipe entre crases? Ele deveria ficar `assim`',
+      error_image_url: 'http://66.media.tumblr.com/7daf9bb49c739c50fb70959de827c83d/tumblr_ms7a8hQA851r019ito1_500.gif'
+    )
+
     House.delete_all
     House.create!(name: 'Alakazam', avatar: 'http://vignette4.wikia.nocookie.net/pokemon/images/c/cc/065Alakazam.png/revision/latest?cb=20140328202820')
     House.create!(name: 'Arceus', avatar: 'http://vignette3.wikia.nocookie.net/pokemon/images/f/fc/493Arceus.png/revision/latest?cb=20140329043000')

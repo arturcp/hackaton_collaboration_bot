@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe 'Score points', type: :request do
+  let!(:house_cup) { create(:house_cup) }
+
   describe '#create' do
     context 'Slack webhook captures trigger keywords' do
       it 'concedes points to the specified house' do

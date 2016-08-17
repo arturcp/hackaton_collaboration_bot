@@ -79,6 +79,5 @@ To restart the contest, it is possible to send a DELETE http request to `/dashbo
 
 # TODO
   * Allow easy configuration of houses
-  * Allow admin to customize slack messages
   * List users per house and prevent them to award points to their houses (maybe some points should be removed from the house as a punishment)
-  * Customize dashboard header
+  * Allow many hackatons at the same time. Each house must be linked to one HouseCup, and they should be able to coexist

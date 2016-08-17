@@ -3,6 +3,7 @@ require 'rails_helper'
 describe 'Score points', type: :request do
   describe '#destroy' do
     it 'deletes all house points' do
+      create(:house_cup)
       create(:house, :ravenclaw)
       gryffindor = create(:house, :gryffindor)
       create(:house_point, house: gryffindor)
