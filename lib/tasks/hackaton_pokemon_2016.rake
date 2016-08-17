@@ -5,7 +5,7 @@ namespace :hackaton do
     Hackaton.create!(
       name: 'Pokémon Hackaton',
       success_pretext: '%{team_name} tem agora %{points} pontos! Veja o ranking completo em %{dashboard_url}',
-      success_text: 'Boa, %{team_name}',
+      success_text: 'Boa, %{team_name}!',
       error_color: '#f4dd1d',
       error_pretext: 'Oops, acho que essa equipe não existe =/',
       error_text: 'Você lembrou de escrever o nome da equipe entre crases? Ele deveria ficar `assim`',
