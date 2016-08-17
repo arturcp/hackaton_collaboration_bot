@@ -5,6 +5,7 @@ class AdminController < ApplicationController
   def index
     @hackaton = hackaton
     @teams = Team.all
+    @team_members = TeamMember.all
     @points = @teams.reduce(0) { |sum, team| sum += team.points }
   end
 

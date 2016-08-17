@@ -7,10 +7,13 @@
           <%= @teams.count %> teams
         </li>
         <li>
+          <%= @team_members.count %> teams members
+        </li>
+        <li>
           <%= @points %> points given
         </li>
         <li>
-          The game is on since <%= @hackaton.created_at.strftime('%d/%m/%Y') %>
+          The game is on since <%= @hackaton.created_at.strftime('%d/%m/%Y %H:%M %Z') %>
         </li>
       </ul>
     </div>
