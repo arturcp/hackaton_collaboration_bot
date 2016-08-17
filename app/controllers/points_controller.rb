@@ -6,11 +6,13 @@ class PointsController < ActionController::API
     @hackaton = hackaton
 
     if slack_message.valid?
+      @team = slack_message.team
+
       @hackaton.award_points(
-        team: team,
+        team: slack_message.team,
         token: slack_params[:token],
         points: slack_message.points,
-        user_name: slack_params[:user_name]
+        user_name: slack_message.user_name
       )
     end
   end
@@ -19,12 +21,9 @@ class PointsController < ActionController::API
 
   def slack_message
     @slack_message ||= SlackMessage.new(
-      message: slack_params[:text]
+      message: slack_params[:text],
+      user_name: slack_params[:user_name]
     )
-  end
-
-  def team
-    @team ||= Team.find_by_name(slack_message.team_name)
   end
 
   # TODO: The current hackaton should be found by a url parameter

@@ -1,6 +1,7 @@
 class Team < ActiveRecord::Base
   has_many :team_points, dependent: :delete_all
   has_many :team_aliases, dependent: :delete_all
+  has_many :team_members, dependent: :delete_all
 
   def points
     team_points.reduce(0) do |sum, team_point|
@@ -10,6 +11,10 @@ class Team < ActiveRecord::Base
 
   def self.find_by_name(name)
     where('lower(name) = ?', name.downcase).first || find_by_alias(name)
+  end
+
+  def has_member?(name)
+    team_members.find { |team_member| team_member.name == name }.present?
   end
 
   private

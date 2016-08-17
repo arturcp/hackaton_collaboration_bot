@@ -1,14 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 Hackaton.delete_all
 Hackaton.create!(
   name: 'Harry Potter Hackaton',
@@ -16,7 +5,7 @@ Hackaton.create!(
   success_text: 'Go, %{team_name}!',
   error_color: '#f4dd1d',
   error_pretext: 'Oops. Something is wrong =/ ',
-  error_text: 'It\'s better to call Dumbledore',
+  error_text: "It's better to call Dumbledore",
   error_image_url: 'http://cdn.collider.com/wp-content/uploads/2015/06/harry-potter-and-the-sorcerers-stone.jpg'
 )
 

@@ -35,32 +35,4 @@ describe Hackaton do
       end
     end
   end
-
-  describe '.find_by_name' do
-    let!(:alias) { TeamAlias.first_or_create(alias: 'gryff', team: team) }
-
-    context 'when the case matches' do
-      it 'finds a team by name' do
-        expect(Team.find_by_name('Gryffindor')).to eq(team)
-      end
-
-      it 'finds a team by alias' do
-        expect(Team.find_by_name('gryff')).to eq(team)
-      end
-
-      it 'returns nil if no team was found' do
-        expect(Team.find_by_name('typo')).to be_nil
-      end
-    end
-
-    context 'when the case does not match' do
-      it 'finds a team by name' do
-        expect(Team.find_by_name('gryffindor')).to eq(team)
-      end
-
-      it 'finds a team by alias' do
-        expect(Team.find_by_name('Gryff')).to eq(team)
-      end
-    end
-  end
 end
