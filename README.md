@@ -33,7 +33,7 @@ To configure the response messages, each hackaton is built with specific
 attributes relative to how the messages will be delived back to the users. The
 valid attributes are:
 
-  * success_text:
+  * success_pretext:
 
     This message will be interpolated with three other variables before being
     sent back to the users:
@@ -42,12 +42,24 @@ valid attributes are:
     * points: the total points assigned to the team
     * dashboard_url: the url to the dashboard of the current hackaton
 
-    To use these variables, include in your `success text string` the pattern
-    `%{ variable_name }`. For example, you can configure your outgoing message as:
+    To use these variables, include in your hackaton `success_pretext` the pattern
+    `%{variable_name}`. For example, you can configure your outgoing message as:
 
     `%{team_name} has now %{points} points! Check the house cup dashboard in %{dashboard_url}`
 
-  * error_text:
+    It will be displayed in the first line of the message.
+
+  * success_text:
+
+    This message will be interpolated with the team name before being
+    sent back to the users. For example, you can configure your outgoing message as:
+
+    `Good work, %{team_name}!
+
+    It will be displayed above the image, as if it was the image caption. **The
+    success image will be the avatar of the team that is receiving the points**.
+
+  * error_pretext:
 
     It does not accept any parameters and will not interpolate. This string will
     be the text displayed on the messaging app if a user tries to give points to
@@ -62,9 +74,9 @@ valid attributes are:
 
     An image to be displayed with the error message.
 
-  * error_pretext:
+  * error_text:
 
-    A small text that works as a caption for the image above
+    A text that works as a caption for the image above
 
 
 ## Setup
