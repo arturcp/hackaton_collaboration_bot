@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20160817013910) do
 
   create_table "hackatons", force: :cascade do |t|
     t.string   "name"
+    t.string   "success_pretext"
     t.string   "success_text"
     t.string   "error_color"
     t.string   "error_pretext"

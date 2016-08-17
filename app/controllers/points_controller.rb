@@ -1,6 +1,6 @@
 class PointsController < ActionController::API
   include ActionController::Helpers
-  helper DashboardHelper, SlackHelper
+  helper DashboardHelper
 
   def create
     @hackaton = hackaton

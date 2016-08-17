@@ -1,7 +1,7 @@
 if @team
   json.attachments [@hackaton] do |hackaton|
-    json.text "GO, #{@team.name}!"
-    json.pretext success_response(@hackaton, @team.name, @team.points)
+    json.text hackaton.success_text % { team_name: @team.name }
+    json.pretext hackaton.success_pretext % { team_name: @team.name, points: @team.points, dashboard_url: dashboard_url }
     json.image_url @team.avatar
   end
 else

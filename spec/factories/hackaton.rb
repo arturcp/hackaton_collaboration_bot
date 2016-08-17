@@ -1,7 +1,8 @@
 FactoryGirl.define do
   factory :hackaton do
     name 'Harry Potter Hackaton'
-    success_text '%{team_name} has now %{points} points! Check the hackaton dashboard in %{dashboard_url}'
+    success_pretext '%{team_name} has now %{points} points! Check the hackaton dashboard in %{dashboard_url}'
+    success_text 'Go, %{team_name}!'
     error_color '#f4dd1d'
     error_pretext 'Oops. Something is wrong =/ '
     error_text 'It\'s better to call Dumbledore'

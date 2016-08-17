@@ -11,6 +11,7 @@ describe 'Score points', type: :request do
 
         json = JSON.parse(response.body, symbolize_names: true)
         expect(json[:attachments][0][:pretext]).to include('Ravenclaw has now 5 points!')
+        expect(json[:attachments][0][:text]).to include('Go, Ravenclaw!')
         expect(json.count).to be_eql(1)
       end
 
@@ -19,8 +20,9 @@ describe 'Score points', type: :request do
         post '/point'
 
         json = JSON.parse(response.body, symbolize_names: true)
-        message = 'Oops. Something is wrong =/'
-        expect(json[:attachments][0][:pretext]).to include(message)
+        expect(json[:attachments][0][:pretext]).to include('Oops. Something is wrong =/')
+        expect(json[:attachments][0][:text]).to include('It\'s better to call Dumbledore')
+        expect(json[:attachments][0][:image_url]).to include('http://cdn.collider.com/wp-content/uploads/2015/06/harry-potter-and-the-sorcerers-stone.jpg')
       end
     end
   end
