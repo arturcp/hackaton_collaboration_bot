@@ -1,0 +1,31 @@
+<div class="card-panel reset-card">
+  <h4 class="header2">Reset</h4>
+  <div class="row">
+    <%= form_tag restart_hackaton_path, method: :delete do %>
+      <div class="row">
+        <div class="input-field col s12">
+          <p>
+            If you want to restart the hackaton, click on the red button below. All
+            points will be deleted and the game will restart.
+          </p>
+          <p>
+            <b>Caution!</b> this action cannot be undone.
+          </p>
+          <p>
+            Make sure this is what you want, because there is no ressurrection spell
+            here, and we did not code checkpoints to which you can return anytime
+            you want.
+          </p>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+              <button class="btn red darken-2 waves-effect waves-light right" type="submit" name="action"
+                onclick="return confirm('Are you sure?')">Restart Hackaton
+                <i class="material-icons left">power_settings_new</i>
+              </button>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

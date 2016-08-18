@@ -1,0 +1,17 @@
+<div class="card-panel stats-card">
+  <h4 class="header2">Stats</h4>
+  <ul>
+    <li>
+      <%= teams_count %> teams
+    </li>
+    <li>
+      <%= team_members_count %> teams members
+    </li>
+    <li>
+      <%= total_points %> points given
+    </li>
+    <li>
+      The game is on since <%= hackaton.created_at.strftime('%d/%m/%Y %H:%M %Z') %>
+    </li>
+  </ul>
+</div>

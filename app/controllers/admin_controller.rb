@@ -6,7 +6,8 @@ class AdminController < ApplicationController
     @hackaton = hackaton
     @teams = Team.all
     @team_members = TeamMember.all
-    @points = @teams.reduce(0) { |sum, team| sum += team.points }
+    @points = TeamPoint.all
+    @points_to_audit = points_to_examine
   end
 
   def destroy
@@ -19,5 +20,10 @@ class AdminController < ApplicationController
   # TODO: The current hackaton should be found by a url parameter
   def hackaton
     Hackaton.first
+  end
+
+  def points_to_examine
+    names = @team_members.map(&:name)
+    @points.select { |point| names.exclude?(point.user) }
   end
 end

@@ -1,0 +1,11 @@
+<div class="card-panel stats-card">
+  <h4 class="header2">Points</h4>
+
+  <ul>
+    <% @points_to_audit.each do |p| %>
+      <li>
+        <%= "#{p.value} point(s) to #{p.team.name} by #{p.user}" %>
+      </li>
+    <% end %>
+  </ul>
+</div>
