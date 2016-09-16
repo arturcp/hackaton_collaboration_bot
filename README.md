@@ -9,7 +9,7 @@ with each other during a hackaton by sending special messages on messaging apps
 The first version is integrated with slack by using the
 [slack webhook](https://rubyslackapi.slack.com/services/B1RQD447R?added=1). The hook
 captures messages starting with a specific text (such as `1 point to`) and
-assigns points to the team indicated in the original message.
+assigns points to the team indicated in the original message
 
 The example included in the `seeds.rb` uses Harry Potter `Houses` as teams:
 
